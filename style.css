@@ -1,0 +1,529 @@
+/* --- Variáveis CSS --- */
+:root {
+    --primary-gradient: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 44%, rgba(0, 212, 255, 1) 94%);
+    --button-gradient-light: linear-gradient(90deg, #00f5ff, #0080ff);
+    --button-gradient-dark: linear-gradient(90deg, #0080ff, #00f5ff);
+    --dark-bg: #000;
+    --darker-bg: #0a0a0a;
+    --light-text: #fff;
+    --mid-text: #ccc;
+    --dark-text: #000;
+    --border-color: #222;
+    --card-gradient: linear-gradient(#111, #1a1a1a);
+    --spacing-xs: 10px;
+    --spacing-sm: 20px;
+    --spacing-md: 30px;
+    --spacing-lg: 60px;
+    --spacing-xl: 100px;
+}
+
+/* --- Estilos Gerais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Para rolagem suave ao clicar em links âncora */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    overflow-x: hidden; /* Garante que não haverá rolagem horizontal indesejada */
+
+    /* REMOVENDO padding-top, pois o header não será fixo */
+    padding-top: 0; 
+}
+
+/* Estilo da barra de rolagem para navegadores Webkit */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0080ff;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00f5ff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+    padding: 0 var(--spacing-sm);
+}
+
+/* --- Header --- */
+.header {
+    background-color: var(--dark-bg);
+    /* REMOVENDO PROPRIEDADES DE FIXAÇÃO */
+    /* position: fixed; */ 
+    /* top: 0; */
+    /* width: 100%; */ 
+    /* z-index: 1000; */
+    
+    box-sizing: border-box;
+    /* Ajustei este padding. 300px é muito para um header que não é fixo,
+       o conteúdo ficaria muito distante do topo da página. */
+    padding: 100px 0; /* Padding vertical para o header. Ajuste conforme desejar o espaçamento. */
+}
+
+.header-content { /* A div que envolve o conteúdo do header no HTML */
+    max-width: 1200px; /* Garante que o conteúdo respeite a largura do container principal */
+    width: 100%; /* Ocupa a largura total disponível dentro do max-width */
+    margin: 0 auto; /* ESSENCIAL: Centraliza o .header-content DENTRO do .header */
+    display: flex;
+    flex-direction: column; /* Organiza os itens FILHOS (h1, p, a) em uma coluna */
+    justify-content: center; /* Centraliza os itens FILHOS VERTICALMENTE */
+    align-items: center; /* Centraliza os itens FILHOS HORIZONTALMENTE */
+    padding: 0 var(--spacing-sm); /* Padding lateral para o conteúdo, consistente com .container */
+    text-align: center; /* Garante que o texto dentro seja centralizado */
+}
+
+.gradiant-text {
+    font-family: "Roboto", sans-serif;
+    background: var(--primary-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 4.5em;
+    font-weight: 900;
+    margin-bottom: var(--spacing-md); /* Espaçamento abaixo do título */
+    line-height: 1.1;
+    text-align: center; /* Centraliza o texto dentro do seu próprio elemento */
+    max-width: 90%; /* Limita a largura para evitar que o texto se estenda demais em telas largas */
+    word-break: break-word; /* Quebra palavras longas se necessário */
+}
+
+.subtitle {
+    font-size: 1.5em;
+    margin-bottom: 50px; /* Mantido para dar espaço adequado ao botão */
+    color: #999;
+    font-weight: 300;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.hero-btn {
+    background: var(--button-gradient-light);
+    color: var(--dark-text);
+    padding: 20px 60px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background 0.3s ease, color 0.3s ease, outline 0.3s ease;
+    display: inline-block;
+    margin-top: 0; /* Removido o margin-top, pois o espaçamento já é controlado pelo margin-bottom do subtitle */
+    outline: none;
+}
+
+.hero-btn:hover {
+    background: var(--button-gradient-dark);
+    color: var(--light-text);
+}
+
+.hero-btn:focus {
+    background: var(--button-gradient-dark);
+    color: var(--light-text);
+    outline: 2px solid #00f5ff;
+    outline-offset: 3px;
+}
+
+/* --- Seção de Benefícios (Sobre Mim) --- */
+.benefits {
+    display: flex; /* Organiza os cartões em linha */
+    flex-wrap: wrap; /* Permite que os cartões quebrem para a próxima linha se não houver espaço */
+    gap: var(--spacing-md); /* Espaçamento entre os cartões */
+    justify-content: center; /* Centraliza os cartões horizontalmente */
+    background-color: var(--dark-bg);
+    padding: 120px var(--spacing-sm);
+    margin-bottom: 50px;
+    text-align: center; /* Centraliza o título H2 */
+}
+
+.benefits h2 {
+    width: 100%; /* Garante que o título ocupe toda a largura disponível */
+    font-size: 3em;
+    margin-bottom: var(--spacing-lg);
+}
+
+.benefit-card {
+    background: var(--card-gradient);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    border-radius: var(--spacing-md);
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, outline 0.3s ease;
+    outline: none;
+}
+
+.benefit-number {
+    font-size: 4em;
+    font-weight: 900;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+    text-align: center;
+}
+
+.benefit-card h3 {
+    color: var(--light-text);
+    margin-bottom: var(--spacing-xs);
+}
+
+.benefit-card p {
+    color: var(--mid-text);
+    font-size: 0.95em;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+}
+
+.benefit-card:focus {
+    transform: translateY(-10px);
+    outline: 2px solid #00f5ff;
+    outline-offset: 3px;
+    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+}
+
+/* --- Seção de Habilidades --- */
+.features-container {
+    text-align: center;
+    background-color: #111;
+    padding: var(--spacing-xl) var(--spacing-sm);
+}
+
+.section-title {
+    font-size: 3em;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 800;
+}
+
+.pill {
+    display: inline-block;
+    background-color: var(--dark-bg);
+    border: 2px solid var(--border-color);
+    color: var(--light-text);
+    padding: 15px 30px;
+    margin: var(--spacing-xs);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, outline 0.3s ease;
+    cursor: pointer;
+    outline: none;
+}
+
+.pill:hover {
+    background-color: #0d5fca;
+    color: white;
+}
+
+.pill:focus {
+    background-color: #0d5fca;
+    color: white;
+    outline: 2px solid #00f5ff;
+    outline-offset: 3px;
+}
+
+/* --- Seção de Projetos --- */
+.projects {
+    padding: var(--spacing-xl) var(--spacing-sm);
+    text-align: center;
+    background-color: var(--darker-bg);
+    margin-bottom: 50px;
+}
+
+.projects .section-title {
+    margin-bottom: var(--spacing-lg);
+    color: var(--light-text);
+}
+
+/* Container para os cards de projeto */
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cartões quebrem para a próxima linha */
+    justify-content: center; /* Centraliza os cartões horizontalmente */
+    gap: var(--spacing-md); /* Espaçamento entre os cartões */
+}
+
+.project-card {
+    background: var(--card-gradient);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: var(--spacing-md);
+    /* Ajuste a largura para 3 colunas em telas maiores */
+    width: calc(33.333% - (var(--spacing-md) * 2 / 3)); /* Ajuste preciso para 3 colunas com gap */
+    min-width: 280px; /* Garante que o card não fique muito pequeno */
+    max-width: 380px; /* Limite máximo para evitar que cartões fiquem muito grandes */
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Conteúdo interno do cartão é vertical */
+    align-items: center;
+    text-align: center;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+}
+
+.project-card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: var(--spacing-sm);
+    height: 200px; /* Altura fixa para as imagens dos projetos */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    width: 100%;
+}
+
+.project-card h3 {
+    font-size: 1.8em;
+    color: #00f5ff;
+    margin-bottom: var(--spacing-xs);
+}
+
+.project-card p {
+    color: var(--mid-text);
+    font-size: 0.95em;
+    margin-bottom: var(--spacing-sm);
+    flex-grow: 1; /* Permite que o parágrafo cresça e empurre o botão para baixo */
+}
+
+.project-card a {
+    display: inline-block;
+    background: var(--button-gradient-light);
+    color: var(--dark-text);
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: background 0.3s ease, color 0.3s ease, outline 0.3s ease;
+    outline: none;
+    margin-top: auto; /* Empurra o botão para a parte inferior do card */
+}
+
+.project-card a:hover,
+.project-card a:focus {
+    background: var(--button-gradient-dark);
+    color: var(--light-text);
+    outline: 2px solid #00f5ff;
+    outline-offset: 3px;
+}
+
+/* --- Seção de Contato (Formulário) --- */
+.contact-form {
+    padding: var(--spacing-xl) var(--spacing-sm);
+    text-align: center;
+    background-color: #111;
+}
+
+.contact-form .section-title {
+    margin-bottom: var(--spacing-lg);
+    color: var(--light-text);
+}
+
+.contact-form form {
+    max-width: 600px;
+    margin: 0 auto; /* Centraliza o formulário */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    background: linear-gradient(#1a1a1a, #222);
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #444;
+    background-color: var(--darker-bg);
+    color: var(--light-text);
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #00f5ff;
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.3);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form button[type="submit"] {
+    background: var(--button-gradient-light);
+    color: var(--dark-text);
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, outline 0.3s ease;
+    outline: none;
+}
+
+.contact-form button[type="submit"]:hover {
+    background: var(--button-gradient-dark);
+    color: var(--light-text);
+}
+
+.contact-form button[type="submit"]:focus {
+    background: var(--button-gradient-dark);
+    color: var(--light-text);
+    outline: 2px solid #00f5ff;
+    outline-offset: 3px;
+}
+
+/* --- Rodapé --- */
+footer {
+    text-align: center;
+    padding: 40px var(--spacing-sm);
+    background-color: var(--darker-bg);
+    color: #888;
+    font-size: 0.9em;
+    border-top: 1px solid #222;
+    margin-top: 50px;
+}
+
+/* --- Media Queries (Responsividade) --- */
+/* Desktop / Telas grandes (mais de 992px) - 3 colunas */
+@media (max-width: 992px) { 
+    .project-card {
+        width: calc(33.333% - (var(--spacing-md) * 2 / 3)); 
+    }
+}
+
+/* Tablets e alguns Laptops (até 768px) - 2 colunas */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 0; /* Menos padding vertical em telas menores */
+    }
+
+    /* REMOVENDO padding-top do body nas media queries */
+    body {
+        padding-top: 0; 
+    }
+
+    .gradiant-text {
+        font-size: 2.8em;
+    }
+
+    .subtitle {
+        font-size: 1.2em;
+    }
+
+    .hero-btn {
+        padding: 15px 40px;
+        font-size: 1em;
+    }
+
+    .benefits {
+        flex-direction: column; 
+        align-items: center; 
+        padding: var(--spacing-xl) var(--spacing-sm);
+    }
+
+    .benefit-card {
+        width: 100%; 
+        max-width: 350px; 
+    }
+
+    .features-container {
+        padding: var(--spacing-xl) var(--spacing-sm);
+    }
+
+    .section-title {
+        font-size: 2.5em;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .pill {
+        padding: 12px 25px;
+        font-size: 0.9em;
+        margin: calc(var(--spacing-xs) / 2);
+    }
+
+    .project-card {
+        width: calc(50% - var(--spacing-md) / 2); 
+        max-width: 380px; 
+    }
+
+    .contact-form form {
+        padding: var(--spacing-md);
+    }
+}
+
+/* Celulares (até 600px) - 1 coluna */
+@media (max-width: 600px) { 
+    /* REMOVENDO padding-top do body nas media queries */
+    body {
+        padding-top: 0; 
+    }
+
+    .project-card {
+        width: 100%; 
+        max-width: 350px; 
+    }
+}
+
+/* Celulares pequenos (até 480px) - Ajustes finos */
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 0; 
+    }
+    .gradiant-text {
+        font-size: 2em; 
+    }
+    .subtitle {
+        font-size: 0.9em;
+    }
+    .hero-btn {
+        padding: 10px 25px;
+        font-size: 0.8em;
+    }
+}
+
+/* style.css */
+
+/* Estilo inicial para elementos que serão animados na entrada */
+.features-container .pill,
+.benefits .benefit-card {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(20px); /* Começa um pouco abaixo da posição final */
+}

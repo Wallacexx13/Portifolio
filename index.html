@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfólio Wallace Dev</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="header-content"> 
+            <h1 class="gradiant-text">Portfólio Wallace Dev</h1>
+            <p class="subtitle">Bem-vindo ao meu portfólio!</p>
+            <a class="hero-btn" href="#projects-section">Ver Projetos</a>
+        </div>
+    </header>
+
+    <section class="benefits container">
+        <h2>Sobre Mim</h2>
+        <article class="benefit-card" tabindex="0">
+            <span class="benefit-number">01</span>
+            <h3>Metodologias Ágeis</h3>
+            <p>Metodologias ágeis são abordagens de desenvolvimento de software que enfatizam a flexibilidade, colaboração e entrega incremental.</p>
+        </article>
+        <article class="benefit-card" tabindex="0">
+            <span class="benefit-number">02</span>
+            <h3>Soft Skills</h3>
+            <p>Soft skills são habilidades interpessoais e de comunicação que ajudam no trabalho em equipe e relações positivas.</p>
+        </article>
+        <article class="benefit-card" tabindex="0">
+            <span class="benefit-number">03</span>
+            <h3>Hard Skills</h3>
+            <p>Hard skills são habilidades técnicas, como programação, análise de dados, etc. Adquiridas por cursos e prática.</p>
+        </article>
+    </section>
+
+    <section class="features-container container">
+        <h2 class="section-title">Minhas Habilidades</h2>
+        <span class="pill" tabindex="0">Desenvolvimento Web</span>
+        <span class="pill" tabindex="0">Design Responsivo</span>
+        <span class="pill" tabindex="0">Banco de Dados</span>
+        <span class="pill" tabindex="0">APIs</span>
+        <span class="pill" tabindex="0">Testes Automatizados</span>
+        <span class="pill" tabindex="0">Gerenciamento de Projetos</span>
+    </section>
+
+    <section id="projects-section" class="projects container">
+        <h2 class="section-title">Projetos</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x200?text=Loja+Sneakers" alt="Miniatura do Projeto Loja WR Sneakers" />
+                <h3>Loja WR Sneakers</h3>
+                <p>React + Node.js + Stripe</p>
+                <a href="#" target="_blank" tabindex="0">Ver Projeto</a>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x200?text=App+Tarefas" alt="Miniatura do Projeto Aplicação de Tarefas" />
+                <h3>Aplicação de Tarefas</h3>
+                <p>Vue.js + Firebase</p>
+                <a href="#" target="_blank" tabindex="0">Ver Projeto</a>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x200?text=Blog+Pessoal" alt="Miniatura do Projeto Blog Pessoal" />
+                <h3>Blog Pessoal</h3>
+                <p>Next.js + GraphQL</p>
+                <a href="#" target="_blank" tabindex="0">Ver Projeto</a>
+            </div>
+             <div class="project-card">
+                <img src="https://via.placeholder.com/400x200?text=Landing+Page" alt="Miniatura do Projeto Landing Page Meditação" />
+                <h3>Landing Page Meditação</h3>
+                <p>HTML + CSS + JavaScript</p>
+                <a href="#" target="_blank" tabindex="0">Ver Projeto</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-form container">
+        <h2 class="section-title">Entre em Contato</h2>
+        <form action="https://formsubmit.co/seuemail@email.com" method="POST">
+            <input type="text" name="name" placeholder="Seu nome" required />
+            <input type="email" name="email" placeholder="Seu email" required />
+            <textarea name="message" placeholder="Sua mensagem"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer class="container">
+        <p>&copy; 2025 Meu Portfólio. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
