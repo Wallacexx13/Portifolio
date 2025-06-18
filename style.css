@@ -1,6 +1,6 @@
 /* --- Variáveis CSS --- */
 :root {
-    --primary-gradient: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 44%, rgba(0, 212, 255, 1) 94%);
+    --primary-gradient: linear-gradient(90deg, rgb(31, 165, 218) 0%, rgb(37, 37, 248) 44%, rgba(0, 212, 255, 1) 94%);
     --button-gradient-light: linear-gradient(90deg, #00f5ff, #0080ff);
     --button-gradient-dark: linear-gradient(90deg, #0080ff, #00f5ff);
     --dark-bg: #000;
@@ -35,7 +35,7 @@ body {
     color: var(--light-text);
     overflow-x: hidden; /* Garante que não haverá rolagem horizontal indesejada */
 
-    /* REMOVENDO padding-top, pois o header não será fixo */
+    /* REMOVIDO padding-top, pois o header não será fixo */
     padding-top: 0; 
 }
 
@@ -66,16 +66,11 @@ body {
 /* --- Header --- */
 .header {
     background-color: var(--dark-bg);
-    /* REMOVENDO PROPRIEDADES DE FIXAÇÃO */
-    /* position: fixed; */ 
-    /* top: 0; */
-    /* width: 100%; */ 
-    /* z-index: 1000; */
-    
+    /* REMOVIDAS as propriedades de fixação: position, top, width, z-index */
+    /* Elas faziam o header ficar parado na rolagem */
     box-sizing: border-box;
-    /* Ajustei este padding. 300px é muito para um header que não é fixo,
-       o conteúdo ficaria muito distante do topo da página. */
-    padding: 100px 0; /* Padding vertical para o header. Ajuste conforme desejar o espaçamento. */
+    /* Ajustei o padding. 300px é muito alto se não é fixo, ajustei para ser mais proporcional. */
+    padding: 80px 0; /* Padding vertical para o header. Ajuste conforme desejar o espaçamento. */
 }
 
 .header-content { /* A div que envolve o conteúdo do header no HTML */
@@ -425,6 +420,7 @@ footer {
 /* Desktop / Telas grandes (mais de 992px) - 3 colunas */
 @media (max-width: 992px) { 
     .project-card {
+        /* Tenta manter 3 colunas, mas se a tela for menor, ajusta para 2 */
         width: calc(33.333% - (var(--spacing-md) * 2 / 3)); 
     }
 }
@@ -432,10 +428,10 @@ footer {
 /* Tablets e alguns Laptops (até 768px) - 2 colunas */
 @media (max-width: 768px) {
     .header {
-        padding: 15px 0; /* Menos padding vertical em telas menores */
+        padding: 60px 0; /* Ajuste o padding vertical para telas de tablet */
     }
 
-    /* REMOVENDO padding-top do body nas media queries */
+    /* REMOVIDO padding-top do body, pois o header não é fixo */
     body {
         padding-top: 0; 
     }
@@ -491,9 +487,13 @@ footer {
 
 /* Celulares (até 600px) - 1 coluna */
 @media (max-width: 600px) { 
-    /* REMOVENDO padding-top do body nas media queries */
+    /* REMOVIDO padding-top do body, pois o header não é fixo */
     body {
         padding-top: 0; 
+    }
+
+    .header {
+        padding: 40px 0; /* Ajuste o padding vertical para telas de celular */
     }
 
     .project-card {
@@ -505,7 +505,7 @@ footer {
 /* Celulares pequenos (até 480px) - Ajustes finos */
 @media (max-width: 480px) {
     .header {
-        padding: 10px 0; 
+        padding: 30px 0; /* Ainda menos padding em telas muito pequenas */
     }
     .gradiant-text {
         font-size: 2em; 
@@ -517,13 +517,4 @@ footer {
         padding: 10px 25px;
         font-size: 0.8em;
     }
-}
-
-/* style.css */
-
-/* Estilo inicial para elementos que serão animados na entrada */
-.features-container .pill,
-.benefits .benefit-card {
-    opacity: 0; /* Começa invisível */
-    transform: translateY(20px); /* Começa um pouco abaixo da posição final */
 }
