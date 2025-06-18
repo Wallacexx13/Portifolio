@@ -1,4 +1,4 @@
-# Portfólio WR Sneakers 🚀
+# Portfólio wallace CARLOS  🚀
 
 Este é o meu portfólio pessoal, onde apresento meus projetos como desenvolvedor e criador da **WR Sneakers**, especializada em limpeza de tênis.
 
